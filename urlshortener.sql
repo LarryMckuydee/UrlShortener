@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS urlshortener;
+
+USE urlshortener;
+
+CREATE TABLE IF NOT EXISTS `urlshortener`.`urls`(
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`url` VARCHAR(255) NOT NULL,
+	`code` VARCHAR(255) NOT NULL,
+	PRIMARY KEY(`id`),
+	UNIQUE (`id`,`url`,`code`)
+)AUTO_INCREMENT=100;
