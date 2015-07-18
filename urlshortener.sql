@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS `urlshortener`.`urls`(
 	`code` VARCHAR(255) NOT NULL,
 	PRIMARY KEY(`id`),
 	UNIQUE (`id`,`url`,`code`)
-)AUTO_INCREMENT=100;
+)AUTO_INCREMENT=100000;

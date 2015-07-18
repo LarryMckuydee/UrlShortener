@@ -5,7 +5,7 @@ if(isset($_POST['url'])){
 	$UrlShortener = new UrlShortener();
 	if($UrlShortener){
 		if($url = $UrlShortener->shortenUrl($_POST['url']))
-			$_SESSION['msg']=$url;
+			$_SESSION['msg']='<a href="'.'http://' . $_SERVER['HTTP_HOST'] ."/UrlShortener"."/".$url.'">'.'http://' . $_SERVER['HTTP_HOST'] ."/".$url.'</a>';
 		else
 			$_SESSION['msg']=$UrlShortener->getErrorMsg();
 	}

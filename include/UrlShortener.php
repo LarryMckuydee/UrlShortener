@@ -21,6 +21,7 @@ class UrlShortener {
 	}
 
 	public function shortenUrl($url){
+		$url = trim($url);
 		if(!filter_var($url,FILTER_VALIDATE_URL)){
 			$this->HandleError("Please enter valid url");
 			return false;
@@ -110,6 +111,25 @@ class UrlShortener {
 		}
 		$error=nl2br(htmlentities($this->errormsg));
 		return $error;
+	}
+
+	function fetchURL($code){
+		if($stmt = $this->conn->prepare("SELECT url FROM urls WHERE code=?")){
+			$stmt->bind_param("s",$code);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			if(($result->num_rows)>0){
+				$row = $result->fetch_assoc();
+				return $row['url'];
+			}else{
+				$this->HandleError("Failed to retrieve result from shortened url");
+				return false;
+			}
+
+		}else{
+			$this->HandleError("Failed to prepare for shortened url");
+			return false;
+		}
 	}
 
 

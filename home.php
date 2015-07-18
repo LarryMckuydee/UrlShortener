@@ -1,5 +1,16 @@
 <?php
 	session_start();
+	require_once 'include/UrlShortener.php';
+	if(isset($_GET['surl'])){
+		$UrlShortener = new UrlShortener();
+		$surl = $_GET['surl'];
+		if($url = $UrlShortener->fetchURL($surl)){
+			header("Location: {$url}");
+			die();
+		}else{
+			$_SESSION['msg']=$UrlShortener->getErrorMsg();
+		}
+	}
 ?>
 <html>
 	<head>
