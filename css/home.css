@@ -1,0 +1,23 @@
+body{
+	text-align: center;
+	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	font-size:18px;
+}
+
+form{
+	margin:5px;
+}
+
+input[type=text]{
+	padding: 5px 60px 5px 60px;
+	border-radius: 2px;
+	border:1px solid #cbcbcb;
+}
+
+input[type=submit]{
+	padding: 5px 30px 5px 30px;
+	border-radius: 2px;
+	border:1px solid #cbcbcb;
+	font-weight: bold;
+	background-color: #ebebeb;
+}
